@@ -36,7 +36,7 @@ concrete LexiconTam of Lexicon = CatTam **
 --lin black_A = mkA "" ;
 --lin blood_N = mkN "" ;
 -- lin blow_V = mkV "" ;
---lin blue_A = mkA "" ;
+lin blue_A = mkA "niila vanna" ;
 --lin boat_N = mkN "" ;
 --lin bone_N = mkN "" ;
 -- lin boot_N = mkN "" ;
@@ -61,7 +61,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin cap_N = mkN "" ;
 --lin car_N = mkN "kereta" ;
 -- lin carpet_N = mkN "" ;
---lin cat_N = mkN "kucing" ;
+lin cat_N = mkN "puunai" "puunai" ;
 -- lin ceiling_N = mkN "" ;
 -- lin chair_N = mkN "" ;
 -- lin cheese_N = mkN "" ;
@@ -93,7 +93,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin distance_N3 = mkN "" ;
 -- lin do_V2 = lin V2 "" ;
 -- lin doctor_N = mkN "" ;
---lin dog_N = mkN "" ;
+lin dog_N = mkN "naay" "naay" ;
 --lin door_N = mkN "" ;
 --lin drink_V2 = let drink' : V2 = mkV2 "minum" in drink' ** {
 --  s = \\_ => "" ;

@@ -1,6 +1,6 @@
 resource ParadigmsTam = open CatTam, ResTam, ParamTam, NounTam, Prelude in {
 
---oper
+oper
 
 --2 Parameters
 --
@@ -22,10 +22,9 @@ resource ParadigmsTam = open CatTam, ResTam, ParamTam, NounTam, Prelude in {
 --  } ;
 
 --2 Adjectives
-
---  mkA : overload {
---    mkA : (adj : Str) -> A ;
---  } ;
+  mkA : overload {
+    mkA : (adj : Str) -> A ;
+  } ;
 
 --  mkA2 : overload {
 --    mkA2 : (adj : Str) -> Prep -> A2 ;
@@ -117,9 +116,9 @@ resource ParadigmsTam = open CatTam, ResTam, ParamTam, NounTam, Prelude in {
 --    mkPN : Str -> PN = \s -> lin PN {s = \\_ => s} ;
 --    } ;
 
---  mkA = overload {
---    mkA : (adj : Str) -> A = \s -> lin A (mkAdj s) ;
---    } ;
+  mkA = overload {
+    mkA : (adj : Str) -> A = \s -> lin A (mkAdj s) ;
+    } ;
 
 --  mkA2 = overload {
 --    mkA2 : (adj : Str) -> A = \s -> lin A2 (mkAdj s) ;

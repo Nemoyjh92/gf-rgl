@@ -113,7 +113,7 @@ concrete CatTam of Cat = CommonX - [IAdv] ** open ResTam, Prelude in {
 --    V2 = ResTam.Verb2 ;
 --    V3 = ResTam.Verb3 ;
 
---    A = ResTam.Adjective ;
+    A = ResTam.Adjective ;
 --    A2  = ResTam.Adjective2 ;
 
     N = ResTam.Noun ;

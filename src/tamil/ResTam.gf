@@ -213,12 +213,12 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Adjectives
 
---  Adjective : Type = SS ;
---  Adjective2 : Type = Adjective ;
+  Adjective : Type = SS ;
+  Adjective2 : Type = Adjective ;
 
---  mkAdj : Str -> Adjective = \str -> {s = str} ;
+  mkAdj : Str -> Adjective = \str -> {s = str} ;
 
---  AdjPhrase : Type = Adjective ; -- ** {compar : Str} ;
+ AdjPhrase : Type = Adjective   ** {compar : Str} ;
 --------------------------------------------------------------------------------
 -- Verbs
 
