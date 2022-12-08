@@ -357,10 +357,10 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Cl, S
 
---  Clause : Type = {
---    subj : Str ;
---    pred : VForm => Polarity => Str -- Cl may become relative clause, need to keep open VForm
---    } ;
+  Clause : Type = {
+    subj : Str ;
+    pred : VForm => Str -- Cl may become relative clause, need to keep open VForm
+    } ;
 
 --  RClause : Type = {
 --    subj : Str ;

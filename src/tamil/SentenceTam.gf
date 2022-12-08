@@ -4,7 +4,7 @@ concrete SentenceTam of Sentence = CatTam ** open
 
 --flags optimize=all_subs ;
 
---lin
+lin
 
 --2 Clauses
 
@@ -63,9 +63,9 @@ concrete SentenceTam of Sentence = CatTam ** open
 --2 Sentences
 
 --  -- : Temp -> Pol -> Cl -> S ;
---  UseCl t p cl = {
---    s = cl.subj ++ t.s ++ p.s ++ cl.pred ! Active ! p.p;
---    } ;
+  UseCl t p cl = {
+    s = cl.subj ++ t.s ++ p.s;
+    } ;
 
 --  -- : Temp -> Pol -> QCl -> QS ;
 --  UseQCl t p cl = {
