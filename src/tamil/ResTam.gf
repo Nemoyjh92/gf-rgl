@@ -12,7 +12,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  PNoun : Type = Noun ;
 
-    mkN : (_,_ : Str)  -> Noun =  \x,y -> {
+    mkN : (_ : Str)  -> Noun =  \x -> {
       s = table {
 	Sg => table{
 	  Nom => x ;
@@ -25,14 +25,14 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 	  Abl => x + "itamiruntu"
 	  } ;
 	Pl => table{
-	  Nom => y + "kal" ;
-	  Acc => y + "kal" + "ai" ;
-	  Dat => y + "kal" + "ukku" ;
-	  Soc => y + "kal" + "otu" ;
-	  Gen => y + "kal" + "utaiya" ;
-	  Instr => y + "kal" + "al" ;
-	  Loc => y + "kal" + "itam" ;
-	  Abl => y + "kal" + "itamiruntu"
+	  Nom => x + "kal" ;
+	  Acc => x + "kal" + "ai" ;
+	  Dat => x + "kal" + "ukku" ;
+	  Soc => x + "kal" + "otu" ;
+	  Gen => x + "kal" + "utaiya" ;
+	  Instr => x + "kal" + "al" ;
+	  Loc => x + "kal" + "itam" ;
+	  Abl => x + "kal" + "itamiruntu"
 	  }
 	} ;
       } ;

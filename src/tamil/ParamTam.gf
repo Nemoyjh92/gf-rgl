@@ -121,9 +121,12 @@ resource ParamTam = ParamX ** open Prelude in {
 -- Verbs
   param
     --Tense = Already available from ParamX.gf under "common" folder
-    Gender = Masc | Fem | Neu | Hon | Hum ; -- Male, Female, Neuter, Honorary, Humble
-    VForm = VF Person Number | VFP3 Number Gender ;
+    -- Gender = Masc | Fem | Neu | Hon | Hum ; -- *Male, Female, Neuter, Honorary, Humble
+    -- VForm = VF Person Number | VFP3 Number Gender ; --*
+    Mood = Imp | Ind | Opt ; -- *Imperative (commands), Indicative (statements or questions), Optative (wishes or choices) (pg. 54)
+
   
+
 --------------------------------------------------------------------------------
 -- Clauses
 

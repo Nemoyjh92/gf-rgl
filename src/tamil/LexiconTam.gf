@@ -61,7 +61,7 @@ lin blue_A = mkA "niila vanna" ;
 -- lin cap_N = mkN "" ;
 --lin car_N = mkN "kereta" ;
 -- lin carpet_N = mkN "" ;
-lin cat_N = mkN "puunai" "puunai" ;
+lin cat_N = mkN "puunai" ;
 -- lin ceiling_N = mkN "" ;
 -- lin chair_N = mkN "" ;
 -- lin cheese_N = mkN "" ;
@@ -93,7 +93,7 @@ lin cat_N = mkN "puunai" "puunai" ;
 -- lin distance_N3 = mkN "" ;
 -- lin do_V2 = lin V2 "" ;
 -- lin doctor_N = mkN "" ;
-lin dog_N = mkN "naay" "naay" ;
+lin dog_N = mkN "naay" ;
 --lin door_N = mkN "" ;
 --lin drink_V2 = let drink' : V2 = mkV2 "minum" in drink' ** {
 --  s = \\_ => "" ;
@@ -180,7 +180,7 @@ lin dog_N = mkN "naay" "naay" ;
 -- lin horn_N = mkN "" ;
 -- lin horse_N = mkN "" ;
 -- lin hot_A = mkA "" ;
-lin house_N = mkN "vittu" "vittu" ;
+lin house_N = mkN "vittu" ;
 -- lin hunt_V2 = mkV2 "" ;
 -- lin husband_N = mkN "" ;
 
