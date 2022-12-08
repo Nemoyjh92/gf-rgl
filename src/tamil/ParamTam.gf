@@ -79,9 +79,8 @@ resource ParamTam = ParamX ** open Prelude in {
 -- Nouns
 
   param
-    Case = Nom | Acc | Dat | Soc | Gen | Instr | Loc | Abl ;
-   -- Number = Already available from ParamX.gf under "common" folder
-
+     -- Number = Already available from ParamX.gf under "common" folder
+    Case = Nom | Acc | Dat | Soc | Gen | Instr | Loc | Abl ; --(p. 46-47)
 --------------------------------------------------------------------------------
 -- Numerals
 
@@ -121,9 +120,10 @@ resource ParamTam = ParamX ** open Prelude in {
 -- Verbs
   param
     --Tense = Already available from ParamX.gf under "common" folder
-    -- Gender = Masc | Fem | Neu | Hon | Hum ; -- *Male, Female, Neuter, Honorary, Humble
+    PNG = 1s | 2s | 3sm | 3sf | 3sn | 3smf | 1pl | 2pl | 3plmf | 3pln ; -- PNG stands for Person-Number-Gender. s = singular, pl = plural, m = male, f = female, n = neuter
     -- VForm = VF Person Number | VFP3 Number Gender ; --*
     Mood = Imp | Ind | Opt ; -- *Imperative (commands), Indicative (statements or questions), Optative (wishes or choices) (pg. 54)
+    
 
   
 

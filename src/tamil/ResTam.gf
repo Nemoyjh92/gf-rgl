@@ -222,72 +222,61 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Verbs
 
-  Verb : Type = {s: Tense  => VForm => Str} ;
+  Verb : Type = {s: Tense  => PNG=> Str} ;
 
+  -- This mkVerb is for class VII, p. 64. "Cond" is just copied from "Fut" for now (08/12/2022)
   mkVerb : (s : Str) -> Verb = \x -> {
       s = table {
 	Past => table {
-	  VF P1 Sg  => x + "nt" + "en" ;
-	  VF P2 Sg => x + "nt" + "ay" ;
-	  VFP3 Sg Hon => x + "nt" + "ar" ;
-	  VFP3 Sg Masc => x + "nt" + "an" ;
-	  VFP3 Sg Fem => x + "nt" + "al" ;
-	  VFP3 Sg Neu => x + "nt" + "atu" ;
-	  VF P1 Pl => x + "nt" + "om" ;
-	  VF P2 Pl => x + "nt" + "irkal" ;
-	  VFP3 Pl Hum => x + "nt" + "arkal" ;
-	  VFP3 Pl Neu => x + "nt" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  1s  => x + "nt" + "een" ;
+	  2s => x + "nt" + "aay" ;
+	  3sm => x + "nt" + "aan" ;
+	  3sf => x + "nt" + "aal" ;
+	  3sn => x + "nt" + "atu" ;
+	  3smf => x + "nt" + "aar" ;
+	  1pl => x + "nt" + "oom" ;
+	  2pl => x + "nt" + "iirkal" ;
+	  3plmf => x + "nt" + "aarkal" ;
+	  3pln => x + "nt" + "ana" ;
 	  } ;
 	Pres => table{
-	  VF P1 Sg  => x + "kir" + "en" ;
-	  VF P2 Sg => x + "kir" + "ay" ;
-	  VFP3 Sg Hon => x + "kir" + "ar" ;
-	  VFP3 Sg Masc => x + "kir" + "an" ;
-	  VFP3 Sg Fem => x + "kir" + "al" ;
-	  VFP3 Sg Neu => x + "kir" + "atu" ;
-	  VF P1 Pl => x + "kir" + "om" ;
-	  VF P2 Pl => x + "kir" + "irkal" ;
-	  VFP3 Pl Hum => x + "kir" + "arkal" ;
-	  VFP3 Pl Neu => x + "kir" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  1s  => x + "kkir" + "een" ;
+	  2s => x + "kkir" + "aay" ;
+	  3sm => x + "kkir" + "aan" ;
+	  3sf => x + "kkir" + "aal" ;
+	  3sn => x + "kkir" + "aal" ;
+	  3smf => x + "kkir" + "aar" ;
+	  1pl => x + "kkir" + "oom" ;
+	  2pl => x + "kkir" + "iirkal" ;
+	  3plmf => x + "kkir" + "aarkal" ;
+	  3pln => x + "kkir" + "ana" ;
 	  } ;
 	Fut => table{
-	  VF P1 Sg  => x + "v" + "en" ;
-	  VF P2 Sg => x + "v" + "ay" ;
-	  VFP3 Sg Hon => x + "v" + "ar" ;
-	  VFP3 Sg Masc => x + "v" + "an" ;
-	  VFP3 Sg Fem => x + "v" + "al" ;
-	  VFP3 Sg Neu => x + "v" + "atu" ;
-	  VF P1 Pl => x + "v" + "om" ;
-	  VF P2 Pl => x + "v" + "irkal" ;
-	  VFP3 Pl Hum => x + "v" + "arkal" ;
-	  VFP3 Pl Neu => x + "v" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x
+	  1s  => x + "pp" + "een" ;
+	  2s => x + "pp" + "aay" ;
+	  3sm => x + "pp" + "aan" ;
+	  3sf => x + "pp" + "aal" ;
+	  3sn => x + "kk" + "um" ;
+	  3smf => x + "pp" + "aar" ;
+	  1pl => x + "pp" + "oom" ;
+	  2pl => x + "pp" + "iirkal" ;
+	  3plmf => x + "pp" + "aarkal" ;
+	  3pln => x + "kk" + "um" ;
 	  } ;
         Cond => table{
-	  VF P1 Sg  => x + "v" + "en" ;
-	  VF P2 Sg => x + "v" + "ay" ;
-	  VFP3 Sg Hon => x + "v" + "ar" ;
-	  VFP3 Sg Masc => x + "v" + "an" ;
-	  VFP3 Sg Fem => x + "v" + "al" ;
-	  VFP3 Sg Neu => x + "v" + "atu" ;
-	  VF P1 Pl => x + "v" + "om" ;
-	  VF P2 Pl => x + "v" + "irkal" ;
-	  VFP3 Pl Hum => x + "v" + "arkal" ;
-	  VFP3 Pl Neu => x + "v" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  1s  => x + "pp" + "een" ;
+	  2s => x + "pp" + "aay" ;
+	  3sm => x + "pp" + "aan" ;
+	  3sf => x + "pp" + "aal" ;
+	  3sn => x + "kk" + "um" ;
+	  3smf => x + "pp" + "aar" ;
+	  1pl => x + "pp" + "oom" ;
+	  2pl => x + "pp" + "iirkal" ;
+	  3plmf => x + "pp" + "aarkal" ;
+	  3pln => x + "kk" + "um" ;
 	  }
 	} ;
-    } ; -- N.B. Cond is just a placeholder, it uses the Future Tamil case
+    } ; 
 
 --  mkVerb2 : Verb -> Preposition -> Verb2 = \v,pr -> v ** {
 --    c2 = pr ;

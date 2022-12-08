@@ -28,17 +28,6 @@ While each resource grammar has similarities in structure, e.g. sharing a ResLan
 |LangTam     |LangTam                       |Combines GrammarTam with LexiconTam                                                                    |
 |AllTam      |AllTam                        |Combines LangTam with ExtendTam                                                                        |
 
-## A reference of variable and inherent features
-
-- Noun (N): Nouns are marked for case and there are 9 cases total, including Nominative (p. 25), Accusative (p. 27), Dative (p. 30), Benefactive (p. 35), Instrumental (p. 36), Sociative (p. 37), Locative (p. 39), Ablative (p. 41), Genitive (p. 42). Pages 46-47 give Noun paradigm tables.
-
-- Noun Phrases (NP): Has grammatical relations (syntactic functions) like subject, direct object, indirect object etc.. Lehmann's grammar focuses on the subject and transitive clauses on page 180. Note that case marking is not necessarily an indicator that the NP is a subject (see section 1.14 of Lehmann). Only agreement is an indicator of the subject relation, and it codes agreement with respect to Person, Number, and where appropriate, Gender and Status.
-
-- Verbs (V): Finite verbs are inflected for Mood (Imperative, Indicative, Optative). Indicative verbs are inflected for the categories of Tense and Number, Person, Gender. Non-finite and nominalized verb forms are inflected for tense in some cases, and for the relational category which indicates subordinate or nominal status of the verb (p. 48)
-
-- Auxiliary Verbs: All auxiliary verbs in Tamil are lexical verbs which have been grammaticalized, i.e. their lexical meaning has been replaced by a grammatical one (p. 194). Through auxiliary verbs, we can realise the following grammmatical categories periphrastically -- Aspect, Mood, Passive voice, Causation, Negative polarity, and Attitude.
-
-
 
 ## Publications
 
@@ -47,7 +36,7 @@ None
 ## References used
 
 - A Grammar of Modern Tamil, 1993, Thomas Lehmann
-This is the main grammatical resource that was referred to. Page references in the library refer to this book unless specifically stated otherwise.
+This is the main grammatical resource that was referred to. Page references in the library and in this readme refer to this book unless specifically stated otherwise.
 
 ## Implementation information
 
@@ -55,3 +44,22 @@ This is the main grammatical resource that was referred to. Page references in t
 
 A conjugation table for verbs and an inference table for nouns have been implemented. A basic DetCN function taking a determiner and a common noun to combine to a noun phrase has also been implemented, with one determiner ("this_Quant") and one noun ("house_N") in use. Use the command "gr -cat=NP" to generate the tree.
 
+### 8th December 2022
+
+Added Parameters to ParamTam based on the below reference of variable and inherent features for Nouns and Verbs. Notable changes include renaming the Gender feature to a combined Person-Number-Gender feature called PNG. Verb table under ResTam has been edited accordingly.
+
+## A reference of variable and inherent features
+
+- Noun (N): Nouns are marked for case and there are 9 cases total, including Nominative (p. 25), Accusative (p. 27), Dative (p. 30), Benefactive (p. 35), Instrumental (p. 36), Sociative (p. 37), Locative (p. 39), Ablative (p. 41), Genitive (p. 42). Pages 46-47 give Noun paradigm tables.
+
+- Noun Phrases (NP): Has grammatical relations (syntactic functions) like subject, direct object, indirect object etc.. Lehmann's grammar focuses on the subject and transitive clauses on page 180. Note that case marking is not necessarily an indicator that the NP is a subject (see section 1.14 of Lehmann). Only agreement is an indicator of the subject relation, and it codes agreement with respect to Person, Number, and where appropriate, Gender and Status.
+
+- Verbs (V): Finite verbs are inflected for Mood (Imperative, Indicative, Optative). Indicative verbs are inflected for the categories of Tense and Number, Person, Gender (these last 3 are bundled together as person-number-gender suffixes [p. 60]). Non-finite and nominalized verb forms are inflected for tense in some cases, and for the relational category which indicates subordinate or nominal status of the verb (p. 48)
+
+- Auxiliary Verbs: All auxiliary verbs in Tamil are lexical verbs which have been grammaticalized, i.e. their lexical meaning has been replaced by a grammatical one (p. 194). Through auxiliary verbs, we can realise the following grammmatical categories periphrastically -- Aspect, Mood, Passive voice, Causation, Negative polarity, and Attitude.
+
+- Adjectives: There are simple and derived adjectives (p. 131-134). Most adjectives are derived, with only a subset of words using the simple adjectival suffix (p. 133). 
+
+- Adjectival clauses: p. 135 
+
+- Adverbs: There are simple and derived adverbs (p. 135-145).
