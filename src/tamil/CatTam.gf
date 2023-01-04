@@ -47,7 +47,7 @@ concrete CatTam of Cat = CommonX - [IAdv] ** open ResTam, Prelude in {
 
 -- Constructed in AdjectiveTam.
 
---    AP = ResTam.AdjPhrase ;
+   AP = ResTam.AdjPhrase ;
 
 
 --2 Nouns and noun phrases
@@ -64,7 +64,7 @@ concrete CatTam of Cat = CommonX - [IAdv] ** open ResTam, Prelude in {
 --    Pron = ResTam.Pronoun ; --Pronouns need enough info to turn it into NP or Quant.
     Det = ResTam.Determiner ;
 --    Predet = SS ;
---    Quant = ResTam.Quant ;
+    Quant = ResTam.Quant ;
     Num = ResTam.Num ;
 --    Ord = {
 --      s : Str ; -- AForm => Str ; -- Ord can came from AP and become AP again
@@ -108,7 +108,7 @@ concrete CatTam of Cat = CommonX - [IAdv] ** open ResTam, Prelude in {
 
 --    V2A,   -- verb with NP and AP complement      e.g. "paint"
 --    V2V,   -- verb with NP and V complement       e.g. "cause"
---    V2S,   -- Reverb with NP and S complement       e.g. "tell"
+--    Vs2,   -- Reverb with NP and S complement       e.g. "tell"
 --    V2Q,   -- verb with NP and Q complement       e.g. "ask"
 --    V2 = ResTam.Verb2 ;
 --    V3 = ResTam.Verb3 ;

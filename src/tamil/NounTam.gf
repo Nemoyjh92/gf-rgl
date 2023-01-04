@@ -7,7 +7,9 @@ concrete NounTam of Noun = CatTam ** open ResTam, Prelude in {
 --2 Noun phrases
 
 -- : Det -> CN -> NP
-    DetCN det cn  = {s = det.s ++ cn.s ! Sg ! Nom} ;
+    DetCN det cn  = {
+      s = \\c => det.s ++ cn.s ! det.n ! c
+      } ;
 
 --  -- : PN -> NP ;
 --    UsePN pn = MassNP (UseN pn) ;
@@ -59,9 +61,8 @@ concrete NounTam of Noun = CatTam ** open ResTam, Prelude in {
 --  -- : Quant -> Num -> Det ;
     DetQuant quant num = quant ** {
       pr = num.s ; -- if it's not a number or digit, num.s is empty
-      s = quant.s ;
+      s = quant.s ! num.n ;
       n = num.n ;
-      count = "ke" ++ BIND ++ num.s ++ BIND ++ "-" ++ BIND ++ num.s;
       } ;
 
 --  -- : Quant -> Num -> Ord -> Det ;
@@ -80,7 +81,7 @@ concrete NounTam of Noun = CatTam ** open ResTam, Prelude in {
 -- the inherent number.
 
   NumSg = baseNum ;
---  NumPl = baseNum ** {n = NoNum Pl} ;
+  NumPl = baseNum ** {n = Pl} ;
 
 --  -- : Card -> Num ;
 --  NumCard card = card ** {
@@ -133,8 +134,8 @@ concrete NounTam of Noun = CatTam ** open ResTam, Prelude in {
 
 --2 Common nouns
 
---  -- : N -> CN
---  -- : N2 -> CN ;
+--  -- UseN : N -> CN
+--  -- UseN2 : N2 -> CN ;
   UseN = ResTam.useN ;
 --  UseN2 = ResTam.useN ;
 

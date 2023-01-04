@@ -10,7 +10,7 @@ concrete ExtendTam of Extend = CatTam
     , PredVPS
 
     -- excluded because RGL funs needed for them not implemented yet
-    , SlashBareV2S
+    , SlashBareVs2
     , PredAPVP
     , ComplBareVS
 

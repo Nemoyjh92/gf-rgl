@@ -13,9 +13,9 @@ oper
 
 --2 Nouns
 
---  mkN : overload {
---    mkN : (noun : Str) -> N ; -- Predictable nouns
---  } ;
+  mkN : overload {
+    mkN : (noun : Str) -> N ; -- Predictable nouns
+  } ;
 
 --  mkPN : overload {
 --    mkPN : Str -> PN ; -- Proper nouns
@@ -23,7 +23,7 @@ oper
 
 --2 Adjectives
   mkA : overload {
-    mkA : (adj : Str) -> A ;
+    mkA : (adj : Str) -> A ; -- predictable adjectives
   } ;
 
 --  mkA2 : overload {
@@ -87,7 +87,8 @@ oper
 
 --  mkAdV : Str -> AdV = \s -> lin AdV {s = s} ;
 
---  mkAdA : Str -> AdA = \s -> lin AdA {s = s} ;
+  mkAdA : Str -> AdA ;
+
 
 
 --.
@@ -115,7 +116,8 @@ oper
 --  mkPN = overload {
 --    mkPN : Str -> PN = \s -> lin PN {s = \\_ => s} ;
 --    } ;
-
+  mkAdA s = lin AdA {s = s} ;
+  
   mkA = overload {
     mkA : (adj : Str) -> A = \s -> lin A (mkAdj s) ;
     } ;

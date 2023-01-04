@@ -20,7 +20,8 @@ While each resource grammar has similarities in structure, e.g. sharing a ResLan
 
 |2011 book   | Tamil RGL                    |Notes|
 |------------|------------------------------|-----|
-|ParadigmsTam|ParamTam, ResTam, ParadigmsTam|ParamTam contains variable aspects of words (e.g. Gender, Mood etc.), ResTam contains the operations (opers) required to create morphological functions (e.g. RegNoun for a function that makes regular nouns, and IrrNoun for irregular nouns), and ParadigmsTam encapsulates (overloads) the morphological functions from ResTam into one mk* (e.g. mkN for 'make Noun' that encapsulates RegNoun and IrrNoun) for API users to write application grammars with|
+|ResTam      |ParamTam, ResTam              |ParamTam contains variable aspects of words (e.g. Gender, Mood etc.), ResTam contains the operations (opers) required to create morphological functions (e.g. RegNoun for a function that makes regular nouns, and IrrNoun for irregular nouns)                                     |
+|ParadigmsTam|ParadigmsTam                  |ParadigmsTam encapsulates (overloads) the morphological functions from ResTam into one mk* (e.g. mkN for 'make Noun' that encapsulates RegNoun and IrrNoun) for API users to write application grammars with                                                                  |
 |ExtraTam    |NA                            |Removed in a previous version                                                                          |
 |SyntaxTam   |SentenceTam                   |                                                                                                       |
 |GrammarTam  |GrammarTam                    |Contains syntactic combination rules from NounTam, VerbTam, AdjectiveTam, AdverbTam and so on.         |
@@ -58,8 +59,14 @@ Added Parameters to ParamTam based on the below reference of variable and inhere
 
 - Auxiliary Verbs: All auxiliary verbs in Tamil are lexical verbs which have been grammaticalized, i.e. their lexical meaning has been replaced by a grammatical one (p. 194). Through auxiliary verbs, we can realise the following grammmatical categories periphrastically -- Aspect, Mood, Passive voice, Causation, Negative polarity, and Attitude.
 
-- Adjectives: There are simple and derived adjectives (p. 131-134). Most adjectives are derived, with only a subset of words using the simple adjectival suffix (p. 133). 
+- Adjectives: There are simple and derived adjectives (p. 131-134). Most adjectives are derived, with only a subset of words using the simple adjectival suffix (p. 133). Adjectives are the only lexical category that cannot cooccur with clitics of whatever type (p. 134).
 
 - Adjectival clauses: p. 135 
 
-- Adverbs: There are simple and derived adverbs (p. 135-145).
+- Adverbs: There are simple and derived adverbs (p. 135-145). Like adjectives, most adverbs are derived, with only a subset of words being simple adverbs (p. 136-138). The situation with derived adverbs is more complex, with Lehmann analysing the role of the derivative suffix --aaka/aay across several pages (p. 140-145) before giving a summary (p. 146).
+
+## Syntax
+
+- Verbal Noun ("Kumar must come"): P. 300 
+
+- Relative Clauses: Pp. 287-94, 349-56

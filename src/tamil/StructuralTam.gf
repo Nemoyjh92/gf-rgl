@@ -71,8 +71,8 @@ concrete StructuralTam of Structural = CatTam **
 --lin someSg_Det =
 
 --lin no_Quant = -}
---lin that_Quant = mkQuant "itu" ;
-lin this_Quant = mkQuant "idhu" ;
+lin that_Quant = mkQuant "idha" "indha" ;
+lin this_Quant = mkQuant "idhu" "indhu" ;
 --lin which_IQuant = mkQuant "yang mana" ** {isPre = False} ;
 
 -----

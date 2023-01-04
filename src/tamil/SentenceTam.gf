@@ -64,7 +64,7 @@ lin
 
 --  -- : Temp -> Pol -> Cl -> S ;
   UseCl t p cl = {
-    s = cl.subj ++ t.s ++ p.s;
+    s = cl.s ++ t.s ++ p.s;
     } ;
 
 --  -- : Temp -> Pol -> QCl -> QS ;

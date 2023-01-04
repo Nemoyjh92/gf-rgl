@@ -2,17 +2,17 @@ concrete AdjectiveTam of Adjective = CatTam ** open ResTam, Prelude in {
 
 --  flags optimize=all_subs ;
 
---  lin
+lin
 
 --  -- : AP -> Adv -> AP ; -- warm by nature
 --  AdvAP  ap adv = ap ** {
 --    s = ap.s ++ adv.s ;
 --  } ;
 
---  -- : A  -> AP ;
---  PositA a = a ** {
---    compar = [] ;
---    } ;
+  -- : A  -> AP ;
+  PositA a = a ** {
+    compar = [] ;
+    } ;
 
 --  -- : A  -> NP -> AP ;
 --  ComparA a np = a ** {
@@ -58,7 +58,9 @@ concrete AdjectiveTam of Adjective = CatTam ** open ResTam, Prelude in {
 -- An adjectival phrase can be modified by an *adadjective*, such as "very".
 
 --  -- : AdA -> AP -> AP ;
---  -- AdAP ada ap = ap ** { } ;
+AdAP ada ap = ap ** { 
+    s = ada.s ++ ap.s
+} ;
 
 
 -- It can also be postmodified by an adverb, typically a prepositional phrase.

@@ -9,7 +9,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin alas_Interj = mkInterj "" ;
 --lin already_Adv = mkA "" ;
 --lin animal_N = mkN "" ;
--- lin answer_V2S = mkV2S "" ;
+-- lin answer_Vs2 = mkVs2 "" ;
 --lin apartment_N = mkN "" ;
 --lin apple_N = mkN "" ;
 --lin art_N = mkN "" ;
@@ -397,6 +397,7 @@ lin house_N = mkN "vittu" ;
 -- lin university_N = mkN "" ;
 -- lin village_N = mkN "" ;
 -- lin vomit_V = mkV2 "" ;
+lin very_AdA = mkAdA "romba" ;
 
 --------
 -- W - Y

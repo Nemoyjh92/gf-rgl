@@ -61,7 +61,7 @@ concrete NumeralTam of Numeral = CatTam [Numeral,Digits] **
 --    pot1 d = mkNum3 d "puluh" [] ;
 
 --    -- : Digit -> Sub10 -> Sub100 ;         -- d * 10 + n
---    pot1plus d e = -- 21 = dua puluh satu, so we choose Indep form of 1.
+--    potpl1us d e = -- 21 = dua puluh satu, so we choose Indep form of 1.
 --      mkNum3 d "puluh" (e.s ! Indep) ;
 
 --    -- : Sub100 -> Sub1000 ;                -- coercion of 1..99
@@ -71,7 +71,7 @@ concrete NumeralTam of Numeral = CatTam [Numeral,Digits] **
 --    pot2 d = potNum d ratus [] ;
 
 --    -- : Sub10 -> Sub100 -> Sub1000 ;       -- m * 100 + n
---    pot2plus d e = potNum d ratus (e.s ! Indep) ;
+--    potpl2us d e = potNum d ratus (e.s ! Indep) ;
 
 --    -- : Sub1000 -> Sub1000000 ;            -- coercion of 1..999
 --    pot2as3 n = n ** {s = n.s ! Indep} ;

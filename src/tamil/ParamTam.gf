@@ -120,7 +120,7 @@ resource ParamTam = ParamX ** open Prelude in {
 -- Verbs
   param
     --Tense = Already available from ParamX.gf under "common" folder
-    PNG = 1s | 2s | 3sm | 3sf | 3sn | 3smf | 1pl | 2pl | 3plmf | 3pln ; -- PNG stands for Person-Number-Gender. s = singular, pl = plural, m = male, f = female, n = neuter
+    PNG = s1 | s2 | sm3 | sf3 | sn3 | smf3 | pl3 | pl3 | plmf3 | pln3 ; -- PNG stands for Person-Number-Gender. s = singular, pl = plural, m = male, f = female, n = neuter
     -- VForm = VF Person Number | VFP3 Number Gender ; --*
     Mood = Imp | Ind | Opt ; -- *Imperative (commands), Indicative (statements or questions), Optative (wishes or choices) (pg. 54)
     
