@@ -90,4 +90,7 @@ lin FullName gn sn = {
     } ;
 
 }
+<<<<<<< HEAD
+>>>>>>> b17d353994fb9fad892e92c5fe50f956900efb29
+=======
 >>>>>>> b17d353994fb9fad892e92c5fe50f956900efb29
