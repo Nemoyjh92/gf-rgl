@@ -9,7 +9,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin alas_Interj = mkInterj "" ;
 --lin already_Adv = mkA "" ;
 --lin animal_N = mkN "" ;
--- lin answer_V2S = mkV2S "" ;
+-- lin answer_Vs2 = mkVs2 "" ;
 --lin apartment_N = mkN "" ;
 --lin apple_N = mkN "" ;
 --lin art_N = mkN "" ;
@@ -29,14 +29,14 @@ concrete LexiconTam of Lexicon = CatTam **
 --lin beer_N = mkN "" ;
 -- lin beg_V2V = mkV2 "" ;
 -- lin belly_N = mkN "" ;
---lin big_A = mkA "" ;
+lin big_A = mkA "periya" ;
 --lin bike_N = mkN "" ;
 --lin bird_N = mkN "" ;
 -- lin bite_V2 = mkV2 "" ;
 --lin black_A = mkA "" ;
 --lin blood_N = mkN "" ;
 -- lin blow_V = mkV "" ;
---lin blue_A = mkA "" ;
+lin blue_A = mkA "niila vanna" ;
 --lin boat_N = mkN "" ;
 --lin bone_N = mkN "" ;
 -- lin boot_N = mkN "" ;
@@ -61,7 +61,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin cap_N = mkN "" ;
 --lin car_N = mkN "kereta" ;
 -- lin carpet_N = mkN "" ;
---lin cat_N = mkN "kucing" ;
+lin cat_N = mkN "puunai" ;
 -- lin ceiling_N = mkN "" ;
 -- lin chair_N = mkN "" ;
 -- lin cheese_N = mkN "" ;
@@ -93,7 +93,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin distance_N3 = mkN "" ;
 -- lin do_V2 = lin V2 "" ;
 -- lin doctor_N = mkN "" ;
---lin dog_N = mkN "" ;
+lin dog_N = mkN "naay" ;
 --lin door_N = mkN "" ;
 --lin drink_V2 = let drink' : V2 = mkV2 "minum" in drink' ** {
 --  s = \\_ => "" ;
@@ -180,7 +180,7 @@ concrete LexiconTam of Lexicon = CatTam **
 -- lin horn_N = mkN "" ;
 -- lin horse_N = mkN "" ;
 -- lin hot_A = mkA "" ;
-lin house_N = mkN "vittu" "vittu" ;
+lin house_N = mkN "vittu" ;
 -- lin hunt_V2 = mkV2 "" ;
 -- lin husband_N = mkN "" ;
 
@@ -397,6 +397,7 @@ lin house_N = mkN "vittu" "vittu" ;
 -- lin university_N = mkN "" ;
 -- lin village_N = mkN "" ;
 -- lin vomit_V = mkV2 "" ;
+lin very_AdA = mkAdA "romba" ;
 
 --------
 -- W - Y

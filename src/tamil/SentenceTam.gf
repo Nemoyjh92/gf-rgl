@@ -4,12 +4,12 @@ concrete SentenceTam of Sentence = CatTam ** open
 
 --flags optimize=all_subs ;
 
---lin
+lin
 
 --2 Clauses
 
 --  -- : NP -> VP -> Cl
---  PredVP = predVP ;
+  PredVP = ResTam.predVP ;
 
 --  -- : SC -> VP -> Cl ;         -- that she goes is good (Saeed p. 94)
 --  --PredSCVP sc vp = ;
@@ -39,7 +39,7 @@ concrete SentenceTam of Sentence = CatTam ** open
 
 -- {-
 --  -- : NP -> VS -> SSlash -> ClSlash ; -- (whom) she says that he loves
---  SlashVS np vs ss = {} ;
+--  SlashVS np vs ss r= {} ;
 
 
 --  -- : Temp -> Pol -> ClSlash -> SSlash ; -- (that) she had not seen
@@ -63,9 +63,9 @@ concrete SentenceTam of Sentence = CatTam ** open
 --2 Sentences
 
 --  -- : Temp -> Pol -> Cl -> S ;
---  UseCl t p cl = {
---    s = cl.subj ++ t.s ++ p.s ++ cl.pred ! Active ! p.p;
---    } ;
+  UseCl t p cl = {
+    s = cl.s ++ t.s ++ p.s;
+    } ;
 
 --  -- : Temp -> Pol -> QCl -> QS ;
 --  UseQCl t p cl = {

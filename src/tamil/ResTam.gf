@@ -12,7 +12,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  PNoun : Type = Noun ;
 
-    mkN : (_,_ : Str)  -> Noun =  \x,y -> {
+    mkN : (_ : Str)  -> Noun =  \x -> {
       s = table {
 	Sg => table{
 	  Nom => x ;
@@ -25,14 +25,14 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 	  Abl => x + "itamiruntu"
 	  } ;
 	Pl => table{
-	  Nom => y + "kal" ;
-	  Acc => y + "kal" + "ai" ;
-	  Dat => y + "kal" + "ukku" ;
-	  Soc => y + "kal" + "otu" ;
-	  Gen => y + "kal" + "utaiya" ;
-	  Instr => y + "kal" + "al" ;
-	  Loc => y + "kal" + "itam" ;
-	  Abl => y + "kal" + "itamiruntu"
+	  Nom => x + "kal" ;
+	  Acc => x + "kal" + "ai" ;
+	  Dat => x + "kal" + "ukku" ;
+	  Soc => x + "kal" + "otu" ;
+	  Gen => x + "kal" + "utaiya" ;
+	  Instr => x + "kal" + "al" ;
+	  Loc => x + "kal" + "itam" ;
+	  Abl => x + "kal" + "itamiruntu"
 	  }
 	} ;
       } ;
@@ -59,7 +59,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 -- NP
 
     NounPhrase : Type = {
-    s : Str ; 
+    s : Case => Str ; 
 --    empty : Str ; -- need to avoid GF being silly. See https://inariksit.github.io/gf/2018/08/28/gf-gotchas.html#metavariables-or-those-question-marks-that-appear-when-parsing
     } ;
 
@@ -74,7 +74,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --    } ;
 
   mkNounPhrase : Str -> NounPhrase = \str -> {
-    s = str ;
+    s = \\_ => str ;
 --    a = NotPron ;
 --    empty = []
     } ;
@@ -91,7 +91,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 -- Det, Quant, Card, Ord
 
   Quant : Type = {
-    s : Str ; -- quantifier in a context, eg. 'berapa (kucing)' (Tamil: I (Nemo) am uncommenting only this part)
+    s : Number => Str ; -- quantifier in a context, eg. 'berapa (kucing)' (Tamil: I (Nemo) am uncommenting only this part)
 --    sp : NForm => Str ; -- a standalone, eg. '(kucing) berapa banyak'
 --    poss : Possession ;
     } ;
@@ -102,24 +102,25 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  linDet : Determiner -> Str = \det -> det.pr ++ det.s ;
 
-  Determiner : Type = Quant ** {
+  Determiner : Type = {
+	s : Str ;
     pr : Str ; -- prefix for numbers
-    n : NumType ; -- number as in 5 (noun in singular), Sg or Pl
-    count: Str ;
+    n : Number ; -- number as in 5 (noun in singular), Sg or Pl
     } ;
   
   CardNum : Type = {
     s : Str ;
     } ;
 
-  Num : Type = CardNum ** {
-    n : NumType
+  Num : Type = {
+	s : Str ;
+    n : Number
     } ; -- (Tamil: Necessary for DetQuant : Quant -> Num -> Det ;)
 
   baseNum : Num = {
     s = [] ;
-   n = NoNum Sg
-    } ;
+	n = Sg ;
+  } ;
 
 --  CardOrdNum : Type = CardNum ** {
 --    ord : Str
@@ -129,31 +130,18 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --    s : CardOrd => Str ;
 --    } ;
 
-  baseQuant : Quant = {
-    s = [] ;
-    sp = \\_ => [] ;
---    poss = Bare ;
-    } ;
-
---      -- \\vf,pol, =>
---      -- let
---      --   verb   : Str    = joinVP vp tense ant pol agr ;
---      --   obj    : Str    = vp.s2 ! agr ;
---      -- in case ord of {
---      --   ODir   => subj ++ verb ++ obj ;  -- Ġanni jiekol ħut
---      --   OQuest => verb ++ obj ++ subj    -- jiekol ħut Ġanni ?
---      -- }
-
-  mkQuant : Str -> Quant = \str -> baseQuant ** {
-    s = str ; -- (Tamil: Extra arguments leftover from Malay)
-    sp = \\_ => str
+  mkQuant : (sg, pl : Str) -> Quant = \idha, indha -> {
+    s = table {
+		Sg => idha ;
+		Pl => indha 
+	} -- (Tamil: Extra arguments leftover from Malay)
     } ;
   
 
-  mkDet : Str -> Str -> Number -> Determiner = \cnt, str, num -> mkQuant str ** {
+  mkDet : Str -> Str -> Number -> Determiner = \cnt, str, num -> {
+	s = str ;
     pr = "" ;
-    n = NoNum num ;
-    count = "" ;
+    n = num ; 
   } ;
 
 
@@ -181,7 +169,7 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  mkPrep : Str -> Preposition = \dengan -> {
 --    s = dengan ;
---    obj = \\p => dengan + poss2str (Poss p) ;
+--    obj = \\p => dengan + posss2tr (Poss p) ;
 --    prepType = OtherPrep ;
 --    } ;
 
@@ -213,81 +201,70 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Adjectives
 
---  Adjective : Type = SS ;
---  Adjective2 : Type = Adjective ;
+  Adjective : Type = SS ;
+  Adjective2 : Type = Adjective ;
 
---  mkAdj : Str -> Adjective = \str -> {s = str} ;
+  mkAdj : Str -> Adjective = \str -> {s = str} ;
 
---  AdjPhrase : Type = Adjective ; -- ** {compar : Str} ;
+ AdjPhrase : Type = Adjective   ** {compar : Str} ;
 --------------------------------------------------------------------------------
 -- Verbs
 
-  Verb : Type = {s: Tense  => VForm => Str} ;
+  Verb : Type = {s: Tense  => PNG=> Str} ;
 
+  -- This mkVerb is for class VII, p. 64. "Cond" is just copied from "Fut" for now (08/12/2022)
   mkVerb : (s : Str) -> Verb = \x -> {
       s = table {
 	Past => table {
-	  VF P1 Sg  => x + "nt" + "en" ;
-	  VF P2 Sg => x + "nt" + "ay" ;
-	  VFP3 Sg Hon => x + "nt" + "ar" ;
-	  VFP3 Sg Masc => x + "nt" + "an" ;
-	  VFP3 Sg Fem => x + "nt" + "al" ;
-	  VFP3 Sg Neu => x + "nt" + "atu" ;
-	  VF P1 Pl => x + "nt" + "om" ;
-	  VF P2 Pl => x + "nt" + "irkal" ;
-	  VFP3 Pl Hum => x + "nt" + "arkal" ;
-	  VFP3 Pl Neu => x + "nt" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  s1  => x + "nt" + "een" ;
+	  s2 => x + "nt" + "aay" ;
+	  sm3 => x + "nt" + "aan" ;
+	  sf3 => x + "nt" + "aal" ;
+	  sn3 => x + "nt" + "atu" ;
+	  smf3 => x + "nt" + "aar" ;
+	  pl1 => x + "nt" + "oom" ;
+	  pl2 => x + "nt" + "iirkal" ;
+	  plmf3 => x + "nt" + "aarkal" ;
+	  pln3 => x + "nt" + "ana" 
 	  } ;
 	Pres => table{
-	  VF P1 Sg  => x + "kir" + "en" ;
-	  VF P2 Sg => x + "kir" + "ay" ;
-	  VFP3 Sg Hon => x + "kir" + "ar" ;
-	  VFP3 Sg Masc => x + "kir" + "an" ;
-	  VFP3 Sg Fem => x + "kir" + "al" ;
-	  VFP3 Sg Neu => x + "kir" + "atu" ;
-	  VF P1 Pl => x + "kir" + "om" ;
-	  VF P2 Pl => x + "kir" + "irkal" ;
-	  VFP3 Pl Hum => x + "kir" + "arkal" ;
-	  VFP3 Pl Neu => x + "kir" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  s1  => x + "kkir" + "een" ;
+	  s2 => x + "kkir" + "aay" ;
+	  sm3 => x + "kkir" + "aan" ;
+	  sf3 => x + "kkir" + "aal" ;
+	  sn3 => x + "kkir" + "aal" ;
+	  smf3 => x + "kkir" + "aar" ;
+	  pl1 => x + "kkir" + "oom" ;
+	  pl2 => x + "kkir" + "iirkal" ;
+	  plmf3 => x + "kkir" + "aarkal" ;
+	  pln3 => x + "kkir" + "ana" 
 	  } ;
 	Fut => table{
-	  VF P1 Sg  => x + "v" + "en" ;
-	  VF P2 Sg => x + "v" + "ay" ;
-	  VFP3 Sg Hon => x + "v" + "ar" ;
-	  VFP3 Sg Masc => x + "v" + "an" ;
-	  VFP3 Sg Fem => x + "v" + "al" ;
-	  VFP3 Sg Neu => x + "v" + "atu" ;
-	  VF P1 Pl => x + "v" + "om" ;
-	  VF P2 Pl => x + "v" + "irkal" ;
-	  VFP3 Pl Hum => x + "v" + "arkal" ;
-	  VFP3 Pl Neu => x + "v" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x
+	  s1  => x + "pp" + "een" ;
+	  s2 => x + "pp" + "aay" ;
+	  sm3 => x + "pp" + "aan" ;
+	  sf3 => x + "pp" + "aal" ;
+	  sn3 => x + "kk" + "um" ;
+	  smf3 => x + "pp" + "aar" ;
+	  pl1 => x + "pp" + "oom" ;
+	  pl2 => x + "pp" + "iirkal" ;
+	  plmf3 => x + "pp" + "aarkal" ;
+	  pln3 => x + "kk" + "um" 
 	  } ;
         Cond => table{
-	  VF P1 Sg  => x + "v" + "en" ;
-	  VF P2 Sg => x + "v" + "ay" ;
-	  VFP3 Sg Hon => x + "v" + "ar" ;
-	  VFP3 Sg Masc => x + "v" + "an" ;
-	  VFP3 Sg Fem => x + "v" + "al" ;
-	  VFP3 Sg Neu => x + "v" + "atu" ;
-	  VF P1 Pl => x + "v" + "om" ;
-	  VF P2 Pl => x + "v" + "irkal" ;
-	  VFP3 Pl Hum => x + "v" + "arkal" ;
-	  VFP3 Pl Neu => x + "v" + "ana" ;
-
-	  VF _ _ => x ;
-	  VFP3 _ _ => x 
+	  s1  => x + "pp" + "een" ;
+	  s2 => x + "pp" + "aay" ;
+	  sm3 => x + "pp" + "aan" ;
+	  sf3 => x + "pp" + "aal" ;
+	  sn3 => x + "kk" + "um" ;
+	  smf3 => x + "pp" + "aar" ;
+	  pl1 => x + "pp" + "oom" ;
+	  pl2 => x + "pp" + "iirkal" ;
+	  plmf3 => x + "pp" + "aarkal" ;
+	  pln3 => x + "kk" + "um" 
 	  }
-	} ;
-    } ; -- N.B. Cond is just a placeholder, it uses the Future Tamil case
+	} 
+    } ; 
 
 --  mkVerb2 : Verb -> Preposition -> Verb2 = \v,pr -> v ** {
 --    c2 = pr ;
@@ -357,10 +334,10 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Cl, S
 
---  Clause : Type = {
---    subj : Str ;
---    pred : VForm => Polarity => Str -- Cl may become relative clause, need to keep open VForm
---    } ;
+  Clause : Type = {
+    subj : Str ;
+    pred : PNG => Str -- Cl may become relative clause, need to keep open VForm
+    } ;
 
 --  RClause : Type = {
 --    subj : Str ;
@@ -373,10 +350,9 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  Sentence : Type = {s : Str} ;
 
---  predVP : NounPhrase -> VerbPhrase -> Clause = \np,vp -> {
---    subj = np.s ! Bare ;
---    pred = vp.s
---    } ;
+  predVP : NounPhrase -> VerbPhrase -> Clause = \np,vp -> {
+    s = np.s ++ vp.s
+    } ;
 
 --  predVPSlash : NounPhrase -> VPSlash -> ClSlash = \np,vps ->
 --    predVP np <vps : VerbPhrase> ** {c2 = vps.c2} ;

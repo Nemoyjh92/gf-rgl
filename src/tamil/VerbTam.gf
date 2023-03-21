@@ -72,8 +72,8 @@ concrete VerbTam of Verb = CatTam ** open ResTam, AdverbTam, Prelude in {
 --  } ;
 
 -- {-
---  -- : V2S -> S  -> VPSlash ;  -- answer (to him) that it is good
---  SlashV2S v2s s =
+--  -- : Vs2 -> S  -> VPSlash ;  -- answer (to him) that it is good
+--  SlashVs2 vs2 s =
 
 --  -- : V2V -> VP -> VPSlash ;  -- beg (her) to go
 --  SlashV2V v2v vp = ;

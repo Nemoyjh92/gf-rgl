@@ -1,0 +1,9 @@
+graph {
+n0[label = "UseComp : VP", style = "solid", shape = "plaintext"] ;
+n0_0[label = "CompAP : Comp", style = "solid", shape = "plaintext"] ;
+n0 -- n0_0 [style = "solid"];
+n0_0_0[label = "PositA : AP", style = "solid", shape = "plaintext"] ;
+n0_0 -- n0_0_0 [style = "solid"];
+n0_0_0_0[label = "big_A : A", style = "solid", shape = "plaintext"] ;
+n0_0_0 -- n0_0_0_0 [style = "solid"];
+}
