@@ -159,9 +159,9 @@ concrete NounTam of Noun = CatTam ** open ResTam, Prelude in {
 --  -- : N3 -> N2 ;          -- distance (to Paris)
 --  -- Use3N3 n3 = lin N2 n3 ;
 --  -- : AP -> CN -> CN
---  AdjCN ap cn = cn ** {
---    s = \\nf => cn.s ! nf ++ ap.s
---    } ;
+  AdjCN ap cn = cn ** {
+    s = \\nf,c => ap.s ! Attributive ++ cn.s ! nf ! c
+    } ;
 
 --  -- : CN -> RS  -> CN ;
 --  RelCN cn rs = cn ** {

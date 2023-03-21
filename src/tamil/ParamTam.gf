@@ -104,8 +104,13 @@ resource ParamTam = ParamX ** open Prelude in {
 --------------------------------------------------------------------------------
 -- Adjectives
 
---param
---  AForm = TODOAdj ;
+param
+
+  AForm =
+    Predicative Gender
+  | Attributive ;
+  Gender = Masc | Fem ;
+
 
 --------------------------------------------------------------------------------
 -- Prepositions

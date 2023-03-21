@@ -9,7 +9,7 @@ lin
 --2 Clauses
 
 --  -- : NP -> VP -> Cl
-  PredVP = ResTam.predVP ;
+--  PredVP = ResTam.predVP ;
 
 --  -- : SC -> VP -> Cl ;         -- that she goes is good (Saeed p. 94)
 --  --PredSCVP sc vp = ;

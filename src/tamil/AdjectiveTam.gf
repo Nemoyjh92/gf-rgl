@@ -10,9 +10,7 @@ lin
 --  } ;
 
   -- : A  -> AP ;
-  PositA a = a ** {
-    compar = [] ;
-    } ;
+  PositA a = a  ;
 
 --  -- : A  -> NP -> AP ;
 --  ComparA a np = a ** {
@@ -59,7 +57,7 @@ lin
 
 --  -- : AdA -> AP -> AP ;
 AdAP ada ap = ap ** { 
-    s = ada.s ++ ap.s
+    s = \\c => ada.s ++ ap.s ! c
 } ;
 
 

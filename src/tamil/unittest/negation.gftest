@@ -1,5 +1,0 @@
-Lang: UseCl (TTAnt TPres ASimul) PNeg (PredVP (DetCN (DetQuant IndefArt NumSg) (UseN cat_N)) (UseComp (CompCN (UseN dog_N))))
-LangEng: a cat isn't a dog
-LangTam: puunai naay ille
-
--- TODO: more fine-grained distinctions in adjectives

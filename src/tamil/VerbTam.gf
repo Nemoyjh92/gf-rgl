@@ -1,4 +1,4 @@
-concrete VerbTam of Verb = CatTam ** open ResTam, AdverbTam, Prelude in {
+    concrete VerbTam of Verb = CatTam ** open ResTam, AdverbTam, Prelude in {
 
 
 --lin

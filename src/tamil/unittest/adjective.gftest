@@ -1,0 +1,15 @@
+-- ../abstract/Noun.gf:    AdjCN   : AP -> CN  -> CN ;   -- big house
+-- ../abstract/Verb.gf:    ComplVA  : VA  -> AP -> VP ;  -- they become red
+-- ../abstract/Verb.gf:    SlashV2A : V2A -> AP -> VPSlash ;  -- paint (it) red
+-- ../abstract/Verb.gf:    CompAP   : AP  -> Comp ;            -- (be) small
+
+-- TODO: more fine-grained distinctions in adjectives
+
+-- SIMPLER ARMCHAIR FOODS TEST
+-- Consulting 
+
+-- this warm pizza
+-- this beautiful pizza
+
+-- this pizza is warm
+-- this pizza is beautiful

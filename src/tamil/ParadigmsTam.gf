@@ -21,9 +21,10 @@ oper
 --    mkPN : Str -> PN ; -- Proper nouns
 --  } ;
 
---2 Adjectives
+--2 Adjectives 
   mkA : overload {
     mkA : (adj : Str) -> A ; -- predictable adjectives
+    mkA : (sudaanan, sudaanal, sudaana : Str) -> A ; -- unpredictable adjectives
   } ;
 
 --  mkA2 : overload {
@@ -92,6 +93,7 @@ oper
 
 
 --.
+-- Nemo note: Anything above this line gets put into GF documentation. The overloaded function is the middle column (sudaaanan, sudaanal, suddana) -> A, and the comment becomes the description --unpredictable adjective
 -------------------------------------------------------------------------------
 -- The definitions should not bother the user of the API. So they are
 -- hidden from the document.
@@ -119,7 +121,10 @@ oper
   mkAdA s = lin AdA {s = s} ;
   
   mkA = overload {
-    mkA : (adj : Str) -> A = \s -> lin A (mkAdj s) ;
+    mkA : (sudaanan, sudaanal, sudaana : Str) -> A = 
+    \sudaanan,sudaanal,sudaana -> 
+      lin A (mkAdj sudaanan sudaanal sudaana) ;
+    mkA : (adj : Str) -> A = \adj -> lin A (regAdj adj) ;
     } ;
 
 --  mkA2 = overload {

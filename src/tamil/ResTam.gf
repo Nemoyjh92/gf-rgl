@@ -201,12 +201,47 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 --------------------------------------------------------------------------------
 -- Adjectives
 
-  Adjective : Type = SS ;
+  Adjective = {
+    s : AForm => Str ;
+  } ;
+
   Adjective2 : Type = Adjective ;
 
-  mkAdj : Str -> Adjective = \str -> {s = str} ;
+-- Simple/Worst case paradigm
+  mkAdj : (x1, x2, x3 :Str) -> Adjective = \predM, predF, attr -> {
+	s = table {
+		Predicative Masc => predM ;
+		Predicative Fem => predF ;
+		Attributive => attr
+	} ;
+  } ;
 
- AdjPhrase : Type = Adjective   ** {compar : Str} ;
+-- Smart Paradigm (sudaana: warm_A; azhakiya: beautiful_A)
+ regAdj : Str -> Adjective = \sudaana -> 
+ let 
+   sudaanan : Str = sudaana + "n" ;
+   sudaanal : Str = sudaana + "l" ;    
+ in 
+   mkAdj sudaanan sudaanal sudaana ;
+
+AdjPhrase = Adjective ;
+
+ {-
+warm_A = {
+  s = table {
+      Predicative Masc => "suudanan" ; 
+      Predicative Fem  => "suudanal" ;
+      Attributive      => "suudana"
+    } ;
+} ;
+
+beautiful_A = {
+  s = table {
+      Predicative Masc => "azhakaanan" ; 
+      Predicative Fem  => "azhakaanal" ;
+      Attributive      => "azhakaana"
+    } ;
+} ; -}
 --------------------------------------------------------------------------------
 -- Verbs
 
@@ -350,10 +385,10 @@ resource ResTam = ParamTam ** open Prelude, Predef in {
 
 --  Sentence : Type = {s : Str} ;
 
-  predVP : NounPhrase -> VerbPhrase -> Clause = \np,vp -> {
+{-  predVP : NounPhrase -> VerbPhrase -> Clause = \np,vp -> {
     s = np.s ++ vp.s
     } ;
-
+-}
 --  predVPSlash : NounPhrase -> VPSlash -> ClSlash = \np,vps ->
 --    predVP np <vps : VerbPhrase> ** {c2 = vps.c2} ;
 
